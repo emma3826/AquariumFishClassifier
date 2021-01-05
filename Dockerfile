@@ -14,7 +14,7 @@ RUN adduser --disabled-password \
     --uid ${NB_UID} \
     ${NB_USER}
 
-COPY FishClassifier.ipynb ${HOME}
+COPY AquariumFishClassifier.ipynb ${HOME}
 COPY export.pkl ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME} && mkdir -p /usr/etc/jupyter && chown -R ${NB_UID} /usr/etc/jupyter
@@ -26,4 +26,4 @@ RUN pip install voila \
     && jupyter serverextension enable voila --sys-prefix
 
 EXPOSE 8866
-CMD ["voila", "FishClassifier.ipynb" "--debug"]
+CMD ["voila", "AquariumFishClassifier.ipynb" "--debug"]
