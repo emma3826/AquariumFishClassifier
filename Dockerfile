@@ -15,7 +15,7 @@ RUN adduser --disabled-password \
     ${NB_USER}
 
 COPY AquariumFishClassifier.ipynb ${HOME}
-COPY export.pkl ${HOME}
+COPY aquarium_fish_model.pkl ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME} && mkdir -p /usr/etc/jupyter && chown -R ${NB_UID} /usr/etc/jupyter
 USER ${NB_USER}
