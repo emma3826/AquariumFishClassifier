@@ -4,4 +4,4 @@
 
 Let the system figure out what fish breeds are present in your aquarium
 
-Experimenting with https://www.fast.ai/
+Experimenting with ![fastai](https://www.fast.ai/)
