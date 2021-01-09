@@ -14,8 +14,9 @@ RUN adduser --disabled-password \
     --uid ${NB_UID} \
     ${NB_USER}
 
-COPY AquariumFishClassifier.ipynb ${HOME}
+COPY DeepLearningExperiments.ipynb ${HOME}
 COPY aquarium_fish_model.pkl ${HOME}
+COPY environmental_sound_model.pkl ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME} && mkdir -p /usr/etc/jupyter && chown -R ${NB_UID} /usr/etc/jupyter
 USER ${NB_USER}
@@ -25,5 +26,7 @@ WORKDIR ${HOME}
 RUN pip install voila \
     && jupyter serverextension enable voila --sys-prefix
 
+RUN pip install git+https://github.com/fastaudio/fastaudio.git
+
 EXPOSE 8866
-CMD ["voila", "AquariumFishClassifier.ipynb" "--debug"]
+CMD ["voila", "DeepLearningExperiments.ipynb"]
