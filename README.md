@@ -1,6 +1,7 @@
-# AquariumFishClassifier
+# Experiment with deep learning
 
-Let the system figure out what fish breeds are present in your aquarium
+Classify the fishes in the aquarium
+Classify environmental sounds
 
 Experimenting with ![fastai](https://www.fast.ai/) 
 
