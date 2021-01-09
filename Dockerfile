@@ -19,6 +19,8 @@ COPY aquarium_fish_model.pkl ${HOME}
 COPY environmental_sound_model.pkl ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME} && mkdir -p /usr/etc/jupyter && chown -R ${NB_UID} /usr/etc/jupyter
+RUN apt-get update -y
+RUN apt-get install -y libsndfile-dev
 USER ${NB_USER}
 
 WORKDIR ${HOME}
@@ -30,5 +32,4 @@ RUN pip install git+https://github.com/fastaudio/fastaudio.git
 
 EXPOSE 8866
 
-#CMD ["voila", "DeepLearningExperiments.ipynb", "-debug"]
-CMD voila --debug DeepLearningExperiments.ipynb
+CMD ["voila", "DeepLearningExperiments.ipynb", "-debug"]
