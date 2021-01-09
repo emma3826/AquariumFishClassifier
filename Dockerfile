@@ -29,4 +29,4 @@ RUN pip install voila \
 RUN pip install git+https://github.com/fastaudio/fastaudio.git
 
 EXPOSE 8866
-CMD ["voila", "DeepLearningExperiments.ipynb"]
+CMD ["voila", "DeepLearningExperiments.ipynb", "--debug"]
